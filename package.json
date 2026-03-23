@@ -1,0 +1,84 @@
+{
+	"name": "storybook-addon-tanstack-router",
+	"version": "0.1.0",
+	"description": "Storybook decorator and parameter helpers for TanStack Router — provides router context, route params, search params, and loader data in stories",
+	"keywords": [
+		"storybook",
+		"storybook-addon",
+		"tanstack",
+		"tanstack-router",
+		"react-router",
+		"testing"
+	],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jonmumm/storybook-addon-tanstack-router"
+	},
+	"type": "module",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs",
+			"types": "./dist/index.d.ts"
+		},
+		"./preview": {
+			"import": "./dist/preview.js",
+			"require": "./dist/preview.cjs",
+			"types": "./dist/preview.d.ts"
+		}
+	},
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE"
+	],
+	"scripts": {
+		"build": "tsup",
+		"check": "biome check .",
+		"check:fix": "biome check --write .",
+		"typecheck": "tsc --noEmit",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"knip": "knip",
+		"verify": "pnpm check && pnpm typecheck && pnpm knip && pnpm test",
+		"prepare": "husky"
+	},
+	"peerDependencies": {
+		"@storybook/react": ">=8.0.0",
+		"@tanstack/react-router": ">=1.0.0",
+		"react": ">=18.0.0",
+		"react-dom": ">=18.0.0"
+	},
+	"peerDependenciesMeta": {
+		"@storybook/react": {
+			"optional": false
+		}
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.8",
+		"@storybook/react": "^10.3.1",
+		"@tanstack/react-router": "^1.168.2",
+		"@testing-library/jest-dom": "^6.9.1",
+		"@testing-library/react": "^16.3.2",
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
+		"husky": "^9.1.7",
+		"jsdom": "^29.0.1",
+		"knip": "^6.0.2",
+		"lint-staged": "^16.4.0",
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4",
+		"storybook": "^10.3.1",
+		"tsup": "^8.5.1",
+		"typescript": "^5.9.3",
+		"vitest": "^4.1.0"
+	},
+	"lint-staged": {
+		"*.{ts,tsx,json}": "biome check --write"
+	},
+	"packageManager": "pnpm@10.5.2"
+}
