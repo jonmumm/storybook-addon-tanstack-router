@@ -20,7 +20,7 @@ import type { TanStackRouterParameters } from "./types.js";
  * ```
  */
 export function tanstackRouterParameters(
-	config: TanStackRouterParameters,
+  config: TanStackRouterParameters,
 ): TanStackRouterParameters {
-	return config;
+  return config;
 }

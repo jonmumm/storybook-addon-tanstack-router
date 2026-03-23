@@ -9,26 +9,26 @@ import { normalizeLocation } from "./utils/normalizeLocation.js";
  * Internal component that creates and provides the TanStack Router context.
  */
 function TanStackRouterDecorator({
-	storyFn,
-	config,
+  storyFn,
+  config,
 }: {
-	storyFn: () => React.JSX.Element;
-	config?: TanStackRouterParameters;
+  storyFn: () => React.JSX.Element;
+  config?: TanStackRouterParameters;
 }) {
-	const routeTree = buildRouteTree(storyFn, config);
+  const routeTree = buildRouteTree(storyFn, config);
 
-	const initialEntry = config?.location ? normalizeLocation(config.location) : "/";
+  const initialEntry = config?.location ? normalizeLocation(config.location) : "/";
 
-	const memoryHistory = createMemoryHistory({
-		initialEntries: [initialEntry],
-	});
+  const memoryHistory = createMemoryHistory({
+    initialEntries: [initialEntry],
+  });
 
-	const router = createRouter({
-		routeTree,
-		history: memoryHistory,
-	});
+  const router = createRouter({
+    routeTree,
+    history: memoryHistory,
+  });
 
-	return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />;
 }
 
 /**
@@ -53,7 +53,7 @@ function TanStackRouterDecorator({
  * ```
  */
 export const withTanStackRouter: Decorator = (Story, context) => {
-	const config = context.parameters?.[PARAM_KEY] as TanStackRouterParameters | undefined;
+  const config = context.parameters?.[PARAM_KEY] as TanStackRouterParameters | undefined;
 
-	return <TanStackRouterDecorator storyFn={Story} config={config} />;
+  return <TanStackRouterDecorator storyFn={Story} config={config} />;
 };

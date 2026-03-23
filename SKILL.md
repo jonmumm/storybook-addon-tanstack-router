@@ -24,29 +24,29 @@ pnpm add -D storybook-addon-tanstack-router
 
 ```typescript
 // .storybook/preview.ts
-import { withTanStackRouter } from 'storybook-addon-tanstack-router'
-export const decorators = [withTanStackRouter]
+import { withTanStackRouter } from "storybook-addon-tanstack-router";
+export const decorators = [withTanStackRouter];
 ```
 
 ### Per-story parameters
 
 ```typescript
-import { tanstackRouterParameters } from 'storybook-addon-tanstack-router'
+import { tanstackRouterParameters } from "storybook-addon-tanstack-router";
 
 export const UserProfile: Story = {
   parameters: {
     tanstackRouter: tanstackRouterParameters({
       location: {
-        path: '/users/$userId',
-        params: { userId: '42' },
-        search: { tab: 'settings' },
+        path: "/users/$userId",
+        params: { userId: "42" },
+        search: { tab: "settings" },
       },
       loader: {
-        data: { user: { id: '42', name: 'Alice' } },
+        data: { user: { id: "42", name: "Alice" } },
       },
     }),
   },
-}
+};
 ```
 
 ### Default (no config)
@@ -56,20 +56,20 @@ Stories that don't need routing just work — the decorator provides a minimal r
 ```typescript
 export const Simple: Story = {
   // No tanstackRouter parameters needed
-}
+};
 ```
 
 ## API Reference
 
 ### `tanstackRouterParameters(config)`
 
-| Config | Property | Type | Description |
-|--------|----------|------|-------------|
-| `location` | `path` | `string` | Route path pattern (e.g. `/users/$userId`) |
-| | `params` | `Record<string, string>` | Route params |
-| | `search` | `Record<string, unknown>` | Query string params |
-| | `hash` | `string` | URL hash fragment |
-| `loader` | `data` | `unknown` | Static loader data |
+| Config     | Property | Type                      | Description                                |
+| ---------- | -------- | ------------------------- | ------------------------------------------ |
+| `location` | `path`   | `string`                  | Route path pattern (e.g. `/users/$userId`) |
+|            | `params` | `Record<string, string>`  | Route params                               |
+|            | `search` | `Record<string, unknown>` | Query string params                        |
+|            | `hash`   | `string`                  | URL hash fragment                          |
+| `loader`   | `data`   | `unknown`                 | Static loader data                         |
 
 ## TanStack Start Integration
 

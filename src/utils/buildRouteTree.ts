@@ -8,23 +8,23 @@ import type { TanStackRouterParameters } from "../types.js";
  * component. Configures loader data and permissive search validation.
  */
 export function buildRouteTree(
-	storyComponent: () => React.JSX.Element,
-	config?: TanStackRouterParameters,
+  storyComponent: () => React.JSX.Element,
+  config?: TanStackRouterParameters,
 ) {
-	const rootRoute = createRootRoute();
+  const rootRoute = createRootRoute();
 
-	const path = config?.location?.path ?? "/";
-	const loaderData = config?.loader?.data;
+  const path = config?.location?.path ?? "/";
+  const loaderData = config?.loader?.data;
 
-	const storyRoute = createRoute({
-		getParentRoute: () => rootRoute,
-		path,
-		component: storyComponent,
-		...(loaderData !== undefined && {
-			loader: () => loaderData,
-		}),
-		validateSearch: (search: Record<string, unknown>) => search,
-	});
+  const storyRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path,
+    component: storyComponent,
+    ...(loaderData !== undefined && {
+      loader: () => loaderData,
+    }),
+    validateSearch: (search: Record<string, unknown>) => search,
+  });
 
-	return rootRoute.addChildren([storyRoute]);
+  return rootRoute.addChildren([storyRoute]);
 }

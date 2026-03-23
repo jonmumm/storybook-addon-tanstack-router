@@ -14,9 +14,9 @@ pnpm add -D storybook-addon-tanstack-router
 
 ```typescript
 // .storybook/preview.ts
-import { withTanStackRouter } from 'storybook-addon-tanstack-router'
+import { withTanStackRouter } from "storybook-addon-tanstack-router";
 
-export const decorators = [withTanStackRouter]
+export const decorators = [withTanStackRouter];
 ```
 
 Or register as an addon to auto-apply:
@@ -24,38 +24,38 @@ Or register as an addon to auto-apply:
 ```typescript
 // .storybook/main.ts
 export default {
-  addons: ['storybook-addon-tanstack-router'],
-}
+  addons: ["storybook-addon-tanstack-router"],
+};
 ```
 
 ### Per-story configuration
 
 ```typescript
-import type { Meta, StoryObj } from '@storybook/react'
-import { tanstackRouterParameters } from 'storybook-addon-tanstack-router'
-import { UserProfile } from './UserProfile'
+import type { Meta, StoryObj } from "@storybook/react";
+import { tanstackRouterParameters } from "storybook-addon-tanstack-router";
+import { UserProfile } from "./UserProfile";
 
 const meta: Meta<typeof UserProfile> = {
   component: UserProfile,
-}
-export default meta
+};
+export default meta;
 
-type Story = StoryObj<typeof UserProfile>
+type Story = StoryObj<typeof UserProfile>;
 
 export const Default: Story = {
   parameters: {
     tanstackRouter: tanstackRouterParameters({
       location: {
-        path: '/users/$userId',
-        params: { userId: '42' },
-        search: { tab: 'settings' },
+        path: "/users/$userId",
+        params: { userId: "42" },
+        search: { tab: "settings" },
       },
       loader: {
-        data: { user: { id: '42', name: 'Alice' } },
+        data: { user: { id: "42", name: "Alice" } },
       },
     }),
   },
-}
+};
 ```
 
 ## API
@@ -70,18 +70,18 @@ Type-safe helper for configuring the addon. Returns the config as-is — it exis
 
 #### `config.location`
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `path` | `string` | Route path pattern, e.g. `'/users/$userId'` |
-| `params` | `Record<string, string>` | Route params to substitute into the path |
-| `search` | `Record<string, unknown>` | Search/query params |
-| `hash` | `string` | URL hash fragment |
+| Property | Type                      | Description                                 |
+| -------- | ------------------------- | ------------------------------------------- |
+| `path`   | `string`                  | Route path pattern, e.g. `'/users/$userId'` |
+| `params` | `Record<string, string>`  | Route params to substitute into the path    |
+| `search` | `Record<string, unknown>` | Search/query params                         |
+| `hash`   | `string`                  | URL hash fragment                           |
 
 #### `config.loader`
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `data` | `unknown` | Static data returned by the route's loader |
+| Property | Type      | Description                                |
+| -------- | --------- | ------------------------------------------ |
+| `data`   | `unknown` | Static data returned by the route's loader |
 
 ## How It Works
 
