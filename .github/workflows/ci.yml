@@ -17,6 +17,6 @@ jobs:
           cache: true
       - run: vp install
       - run: vp check
-      - run: pnpm knip
+      - run: vp exec knip
       - run: vp test
       - run: vp pack
