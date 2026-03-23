@@ -1,0 +1,73 @@
+{
+  "name": "storybook-addon-tanstack-router",
+  "version": "0.1.0",
+  "description": "Storybook decorator and parameter helpers for TanStack Router — provides router context, route params, search params, and loader data in stories",
+  "keywords": [
+    "react-router",
+    "storybook",
+    "storybook-addon",
+    "tanstack",
+    "tanstack-router",
+    "testing"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonmumm/storybook-addon-tanstack-router"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.mts"
+    },
+    "./preview": {
+      "import": "./dist/preview.mjs",
+      "require": "./dist/preview.cjs",
+      "types": "./dist/preview.d.mts"
+    }
+  },
+  "scripts": {
+    "check": "vp check",
+    "check:fix": "vp check --fix",
+    "test": "vp test",
+    "build": "vp pack",
+    "knip": "knip",
+    "verify": "pnpm check && pnpm knip && pnpm test"
+  },
+  "devDependencies": {
+    "@storybook/react": "^10.3.1",
+    "@tanstack/react-router": "^1.168.2",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "jsdom": "^29.0.1",
+    "knip": "^6.0.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "storybook": "^10.3.1",
+    "vite-plus": "^0.1.13",
+    "vitest": "^4.1.0"
+  },
+  "peerDependencies": {
+    "@storybook/react": ">=8.0.0",
+    "@tanstack/react-router": ">=1.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@storybook/react": {
+      "optional": false
+    }
+  },
+  "packageManager": "pnpm@10.5.2"
+}
